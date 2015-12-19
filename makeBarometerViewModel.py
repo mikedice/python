@@ -52,8 +52,21 @@ if len(viewModelSegment) > 0: # have to print the last segment
 maxMeasurement = max(viewModelSegments)
 minMeasurement = min(viewModelSegments)
 median = statistics.median(viewModelSegments)
+measurementRange = maxMeasurement-minMeasurement
+graphSegments = []
+graphMax = 80
+graphMin = 0
+
+for measurement in viewModelSegments:
+    percentage = measurement/measurementRange
+    barHeight = graphMx * percentage
+    graphSegments.append(round(barHeight))
+
 outObj = {}
-outObj["segments"]=viewModelSegments
+outObj["graphMax"]=graphMax
+outObj["graphMin"]=graphMin
+outObj["graphSegments"]=graphSegments
+outObj["measurements"]=viewModelSegments
 outObj["max"]=maxMeasurement
 outObj["min"]=minMeasurement
 outObj["median"]=median

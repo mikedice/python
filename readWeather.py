@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import Adafruit_BMP.BMP085 as BMP085
 import json
 import os
@@ -18,4 +19,4 @@ with open(graphDataFile, 'w') as fileObj:
 	json.dump(result, fileObj)
 
 # run the view model builder
-os.system("python3 makeBarometerViewModel.py")
+os.system("python3 /home/pi/code/python/makeBarometerViewModel.py")

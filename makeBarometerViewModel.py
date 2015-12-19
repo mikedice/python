@@ -1,9 +1,3 @@
-#open the file x
-#read one JSON object from the file
-#close the file x
-#load JSON array from file y
-#add new object to array according to web site graph directive view requirements
-#close the file
 import json
 import os.path
 import statistics

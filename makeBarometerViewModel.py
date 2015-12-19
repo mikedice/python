@@ -58,8 +58,10 @@ graphMax = 80
 graphMin = 0
 
 for measurement in viewModelSegments:
-    percentage = measurement/measurementRange
-    barHeight = graphMx * percentage
+    percentage = 1
+    if measurementRange > 0.0:
+        percentage = measurement/measurementRange
+    barHeight = graphMax * percentage
     graphSegments.append(round(barHeight))
 
 outObj = {}

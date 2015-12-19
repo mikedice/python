@@ -31,8 +31,6 @@ graphModel.append(inputModel)
 with open(graphDataFile, 'w', encoding='utf-8') as graphDataOutput:
     json.dump(graphModel, graphDataOutput)
 
-print(len(graphModel))
-
 # the view is a bar graph with viewModelSegmentCount segments so the graphModel
 # needs to be separated into viewModelSegmentCount segments
 viewModelSegments = [] #this will be a list of the floating point numbers that is the mean of each segment in the data set
@@ -52,21 +50,19 @@ measurementRange = maxMeasurement-minMeasurement
 graphSegments = []
 graphMax = 80
 graphMin = 0
-print(len(viewModelSegments))
 
 for measurement in viewModelSegments:
-    percentage = 1
-    if measurementRange > 0.0:
-        percentage = measurement/measurementRange
-    barHeight = graphMax * percentage
+    percentage = (measurement-minMeasurement)/measurementRange
+    print(percentage)
+    barHeight = percentage * graphMax
     graphSegments.append(round(barHeight))
-print(len(graphSegments))
 
 outObj = {}
 outObj["graphMax"]=graphMax
 outObj["graphMin"]=graphMin
 outObj["graphSegments"]=graphSegments
 outObj["measurements"]=viewModelSegments
+outObj["range"]=measurementRange
 outObj["max"]=maxMeasurement
 outObj["min"]=minMeasurement
 outObj["median"]=median
@@ -74,9 +70,3 @@ outObj["median"]=median
     
 with open(graphViewModelFile, 'w', encoding='utf-8') as viewModelFile:
     json.dump(outObj, viewModelFile)
-    
-                                 
-
-    
-
-

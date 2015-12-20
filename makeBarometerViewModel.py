@@ -53,7 +53,6 @@ graphMin = 0
 
 for measurement in viewModelSegments:
     percentage = (measurement-minMeasurement)/measurementRange
-    print(percentage)
     barHeight = percentage * graphMax
     graphSegments.append(round(barHeight))
 

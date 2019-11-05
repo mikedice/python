@@ -14,6 +14,14 @@ purposes.
 secondsSetting = 0
 minutesSetting = 3
 
+if secondsSetting > 60 or secondsSetting < 0:
+    print 'seconds must be between 0 and 60'
+    exit()
+
+if minutesSetting > 60 or minutesSetting < 0:
+    print 'minutes must be between 0 and 60'
+    exit()
+
 # make copies of the settings which we can update below
 seconds = secondsSetting
 minutes = minutesSetting
